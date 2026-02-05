@@ -1,4 +1,3 @@
-
 [tasks.download]
 description = "download wsldl & tarball"
 env.URL1 = "https://github.com/yuk7/wsldl/releases/latest/download/icons.zip"
