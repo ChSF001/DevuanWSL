@@ -17,7 +17,6 @@ build(){
     echo "Packing wsl..."
     mkdir ziproot
     mkdir -p ziproot/usr/lib/wsl
-    cp rootfs.tar.xz ziproot/rootfs.tar.xz
 
     tar -C ziproot -xf rootfs.tar.xz
     install -pm644 fs/etc/wsl-distribution.conf ziproot/etc/wsl-distribution.conf
@@ -27,7 +26,7 @@ build(){
     tar -C ziproot --numeric-owner --absolute-names --create . | pigz > Devuan.wsl
     # tar -C ziproot --numeric-owner --absolute-names --create . | gzip --best Devuan.wsl
 
-    rm -rf ziproot
+    rm -rf ziproot/*
     sha512sum Devuan.wsl > Devuan.wsl.sha512
 
     echo "Packing zip..."
